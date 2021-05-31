@@ -12,18 +12,32 @@ struct RecipeListView: View {
    @ObservedObject var model = RecipeModel()
     
     var body: some View {
-        List(model.recipes) { r in
-            HStack(alignment: .center, spacing: 20.0) {
-                Image(r.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .clipped()
-                    .cornerRadius(5)
-                Text(r.name)
+        
+        NavigationView {
+            List(model.recipes) { r in
+                
+                // Get pass own view with destination
+                NavigationLink(
+                    destination: RecipeDetailView(recipe: r),
+                    label: {
+                        
+                        // MARK: Row Item
+                        HStack(alignment: .center, spacing: 20.0) {
+                            Image(r.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .clipped()
+                                .cornerRadius(5)
+                            Text(r.name)
+                        }
+                    })
+                
+      
+                
+                
             }
-            
-            
+            .navigationBarTitle("All Recipe")
         }
     }
 }
