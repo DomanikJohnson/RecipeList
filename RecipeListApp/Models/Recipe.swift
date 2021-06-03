@@ -17,9 +17,20 @@ class Recipe: Decodable, Identifiable {
     var cookTime:String
     var totalTime:String
     var servings:Int
-    var ingredients:[String]
+    var highlights:[String]
+    var ingredients:[Ingredient]
     var directions:[String]
     
     
     
+}
+
+//Identifiagle3 means lets up identfih between each in a loop
+//Decodagle lets us decode our object
+class Ingredient: Identifiable, Decodable {
+    var id:UUID?
+    var name:String
+    var num:Int?
+    var denom:Int?
+    var unit:String?
 }
