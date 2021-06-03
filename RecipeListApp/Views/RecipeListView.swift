@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RecipeListView: View {
-    // Listen for any published changes
-   @ObservedObject var model = RecipeModel()
-    
+    // Special property wrapper: This property will be populate with instance you created there
+    @EnvironmentObject var model:RecipeModel
+
     var body: some View {
         
         NavigationView {
